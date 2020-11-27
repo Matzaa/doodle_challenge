@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Messages from "./Messages";
 
 export default function App() {
-    const [chatMessage, setMessage] = useState("");
+    const [chatMessage, setChatMessage] = useState("");
     const [author, setAuthor] = useState("me");
     const [messages, setMessages] = useState([]);
 
@@ -22,7 +22,6 @@ export default function App() {
             });
     };
 
-    // post message
     const postMsg = () => {
         fetch(`https://chatty.kubernetes.doodle-test.com/api/chatty/v1.0`, {
             method: "POST",
@@ -40,15 +39,27 @@ export default function App() {
                 res.json();
             })
             .then((result) => {
-                console.log("what came bak: ", result);
+                console.log("what came back: ", result);
+                getMsgs();
+                setChatMessage("");
+            })
+            .catch((err) => {
+                console.log("error in POST req: ", err);
             });
     };
 
     const handleChange = (e) => {
+        console.log("e.kcode ", e);
         console.log("e.target.val", e.target.value);
         console.log("e.target.name", e.target.name);
-        setMessage(e.target.value);
+        setChatMessage(e.target.value);
         setAuthor("me");
+        if (e.key === "Enter") {
+            console.log("enter hit ");
+            e.preventDefault();
+            postMsg();
+            e.target.value = "";
+        }
     };
 
     return (
@@ -58,6 +69,8 @@ export default function App() {
                 <textarea
                     name="msg"
                     onChange={(e) => handleChange(e)}
+                    onKeyDown={(e) => handleChange(e)}
+                    value={chatMessage}
                 ></textarea>
                 <button onClick={postMsg}>Send</button>
             </div>
