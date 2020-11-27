@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useEffect } from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    useEffect(() => {
+        console.log("hooked up");
+        fetch(`https://chatty.kubernetes.doodle-test.com/api/chatty/v1.0/?token=
+ruYNT6HEXCel`)
+            .then((res) => res.json())
+            .then((response) => {
+                console.log("data :", response);
+            });
+    });
+
+    const postMsg = () => {
+        fetch(`https://chatty.kubernetes.doodle-test.com/api/chatty/v1.0`, {
+            method: "POST",
+            body: JSON.stringify({
+                message: "does it work?",
+                author: "Bob",
+            }),
+
+            headers: {
+                "Content-Type": "application/json",
+                token: "ruYNT6HEXCel",
+            },
+        })
+            .then((res) => {
+                res.json();
+            })
+            .then((result) => {
+                console.log("what came bak: ", result);
+            });
+    };
+
+    return (
+        <div className="App">
+            <h1 onClick={postMsg}>hi</h1>
+        </div>
+    );
 }
 
 export default App;
