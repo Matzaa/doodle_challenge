@@ -6,12 +6,12 @@ export default function Messages(props) {
             {props.messages &&
                 props.messages.map((eachMsg) => (
                     <div
-                        className={`${
+                        className={`chat-box ${
                             eachMsg.author === "me" ? "me" : "others"
                         }`}
                         key={eachMsg._id}
                     >
-                        <p>{eachMsg.author}</p>
+                        <p>{eachMsg.author !== "me" && eachMsg.author}</p>
                         <h1>{eachMsg.message}</h1>
                         <p> {new Date(eachMsg.timestamp).toLocaleString()}</p>
                     </div>

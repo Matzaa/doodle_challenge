@@ -49,13 +49,12 @@ export default function App() {
     };
 
     const handleChange = (e) => {
-        console.log("e.kcode ", e);
-        console.log("e.target.val", e.target.value);
-        console.log("e.target.name", e.target.name);
+        // console.log("e.kcode ", e);
+        // console.log("e.target.val", e.target.value);
+        // console.log("e.target.name", e.target.name);
         setChatMessage(e.target.value);
         setAuthor("me");
         if (e.key === "Enter") {
-            console.log("enter hit ");
             e.preventDefault();
             postMsg();
             e.target.value = "";
