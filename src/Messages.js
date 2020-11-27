@@ -5,9 +5,15 @@ export default function Messages(props) {
         <div id="messages">
             {props.messages &&
                 props.messages.map((eachMsg) => (
-                    <div className="each-msg" key={eachMsg._id}>
-                        <h1>{eachMsg.author}</h1>
+                    <div
+                        className={`${
+                            eachMsg.author === "me" ? "me" : "others"
+                        }`}
+                        key={eachMsg._id}
+                    >
+                        <p>{eachMsg.author}</p>
                         <h1>{eachMsg.message}</h1>
+                        <p> {new Date(eachMsg.timestamp).toLocaleString()}</p>
                     </div>
                 ))}
         </div>

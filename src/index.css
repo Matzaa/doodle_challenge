@@ -15,3 +15,11 @@ code {
 .App {
     background-color: blueviolet;
 }
+
+.me {
+    color: pink;
+}
+
+.others {
+    color: green;
+}
