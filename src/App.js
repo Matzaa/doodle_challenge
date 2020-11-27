@@ -1,7 +1,10 @@
-import "./App.css";
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 function App() {
+    const [message, setMessage] = useState("");
+    const [author, setAuthor] = useState("me");
+
+    // get all messages on starting
     useEffect(() => {
         console.log("hooked up");
         fetch(`https://chatty.kubernetes.doodle-test.com/api/chatty/v1.0/?token=
@@ -12,12 +15,13 @@ ruYNT6HEXCel`)
             });
     });
 
+    // post message
     const postMsg = () => {
         fetch(`https://chatty.kubernetes.doodle-test.com/api/chatty/v1.0`, {
             method: "POST",
             body: JSON.stringify({
-                message: "does it work?",
-                author: "Bob",
+                message: message,
+                author: author,
             }),
 
             headers: {
@@ -33,9 +37,17 @@ ruYNT6HEXCel`)
             });
     };
 
+    const handleChange = (e) => {
+        console.log("e.target.val", e.target.value);
+        console.log("e.target.name", e.target.name);
+        setMessage(e.target.value);
+        setAuthor("me");
+    };
+
     return (
         <div className="App">
-            <h1 onClick={postMsg}>hi</h1>
+            <textarea name="msg" onChange={(e) => handleChange(e)}></textarea>
+            <button onClick={postMsg}>Send</button>
         </div>
     );
 }
