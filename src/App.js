@@ -1,26 +1,33 @@
 import React, { useState, useEffect } from "react";
+import Messages from "./Messages";
 
-function App() {
-    const [message, setMessage] = useState("");
+export default function App() {
+    const [chatMessage, setMessage] = useState("");
     const [author, setAuthor] = useState("me");
+    const [messages, setMessages] = useState([]);
 
-    // get all messages on starting
     useEffect(() => {
+        getMsgs();
+    }, []);
+
+    const getMsgs = () => {
         console.log("hooked up");
-        fetch(`https://chatty.kubernetes.doodle-test.com/api/chatty/v1.0/?token=
-ruYNT6HEXCel`)
+        fetch(
+            `https://chatty.kubernetes.doodle-test.com/api/chatty/v1.0/?token=ruYNT6HEXCel`
+        )
             .then((res) => res.json())
             .then((response) => {
                 console.log("data :", response);
+                setMessages(response);
             });
-    });
+    };
 
     // post message
     const postMsg = () => {
         fetch(`https://chatty.kubernetes.doodle-test.com/api/chatty/v1.0`, {
             method: "POST",
             body: JSON.stringify({
-                message: message,
+                message: chatMessage,
                 author: author,
             }),
 
@@ -46,10 +53,14 @@ ruYNT6HEXCel`)
 
     return (
         <div className="App">
-            <textarea name="msg" onChange={(e) => handleChange(e)}></textarea>
-            <button onClick={postMsg}>Send</button>
+            <Messages messages={messages} />
+            <div id="chat">
+                <textarea
+                    name="msg"
+                    onChange={(e) => handleChange(e)}
+                ></textarea>
+                <button onClick={postMsg}>Send</button>
+            </div>
         </div>
     );
 }
-
-export default App;
