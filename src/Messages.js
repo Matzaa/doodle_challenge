@@ -3,6 +3,7 @@ import React, { useRef, useEffect } from "react";
 export default function Messages(props) {
     const end = useRef();
 
+    // scroll to end on load
     useEffect(() => {
         console.log("hey");
         if (end.current) {
