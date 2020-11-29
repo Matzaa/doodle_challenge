@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Messages from "./Messages";
+import WriteChat from "./WriteChat";
 import "./App.css";
 
 export default function App() {
@@ -50,9 +51,6 @@ export default function App() {
     };
 
     const handleChange = (e) => {
-        // console.log("e.kcode ", e);
-        // console.log("e.target.val", e.target.value);
-        // console.log("e.target.name", e.target.name);
         setChatMessage(e.target.value);
         setAuthor("me");
         if (e.key === "Enter") {
@@ -65,7 +63,7 @@ export default function App() {
     return (
         <div>
             <Messages messages={messages} />
-            <div id="chat">
+            {/* <div id="chat">
                 <textarea
                     name="msg"
                     onChange={(e) => handleChange(e)}
@@ -74,7 +72,12 @@ export default function App() {
                     value={chatMessage}
                 ></textarea>
                 <button onClick={postMsg}>Send</button>
-            </div>
+            </div> */}
+            <WriteChat
+                handleChange={(arg) => handleChange(arg)}
+                chatMessage={chatMessage}
+                postMsg={postMsg}
+            />
         </div>
     );
 }

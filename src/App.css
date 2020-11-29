@@ -32,11 +32,7 @@ body {
 #chat {
     background-color: #3798d4;
     display: flex;
-    /* align-content: space-around; */
     height: 3.5em;
-    /* position: fixed;
-    bottom: 0;
-    width: 100vw; */
     height: 6vh;
     padding: 0 10vh;
 }
