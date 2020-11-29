@@ -1,3 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap");
 
+* {
+    box-sizing: border-box;
+    font-family: "Fira Sans", sans-serif;
+}
 
+body {
+    margin: 0;
+}
 
+#messages {
+    background: url("./BodyBG.png") repeat scroll;
+    overflow: scroll;
+    height: 94vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.me {
+    background-color: rgb(255, 251, 198);
+    float: right;
+    width: 420px;
+    align-self: flex-end;
+}
+
+.others {
+    background-color: white;
+    max-width: 420px;
+}
+
+#chat {
+    background-color: #3798d4;
+    display: flex;
+    /* align-content: space-around; */
+    height: 3.5em;
+    /* position: fixed;
+    bottom: 0;
+    width: 100vw; */
+    height: 6vh;
+    padding: 0 10vh;
+}
+
+textarea {
+    resize: none;
+    border: rgb(4, 79, 122) solid 2px;
+    border-radius: 5px;
+    height: 4vh;
+    align-self: center;
+    margin: 0;
+    width: 70vw;
+    font-size: large;
+    padding: 6px;
+}
+
+.chat-box {
+    border: solid 1px rgb(163, 162, 162);
+    border-radius: 5px;
+    margin: 8px 10vh;
+    padding: 16px;
+}
+
+button {
+    border: none;
+    border-radius: 5px;
+    background-color: #ff876d;
+    color: white;
+    height: 4vh;
+    margin: 0 0 0 8px;
+    width: 10vw;
+    align-self: center;
+    text-align: center;
+}
+
+p {
+    margin: 2px;
+}
+
+.date {
+    margin-top: 5px;
+}
+
+h2 {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .me,
+    .others {
+        width: 240px;
+    }
+
+    .chat-box {
+        margin: 8px 24px;
+    }
+
+    #chat {
+        padding: 8px;
+    }
+
+    textarea {
+        width: 80vw;
+    }
+    button {
+        width: 20vw;
+    }
+}

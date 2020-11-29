@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Messages from "./Messages";
+import "./App.css";
 
 export default function App() {
     const [chatMessage, setChatMessage] = useState("");
@@ -62,13 +63,14 @@ export default function App() {
     };
 
     return (
-        <div className="App">
+        <div>
             <Messages messages={messages} />
             <div id="chat">
                 <textarea
                     name="msg"
                     onChange={(e) => handleChange(e)}
                     onKeyDown={(e) => handleChange(e)}
+                    placeholder="Message"
                     value={chatMessage}
                 ></textarea>
                 <button onClick={postMsg}>Send</button>
