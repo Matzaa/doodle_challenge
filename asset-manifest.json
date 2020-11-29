@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/doodle_challenge/static/css/main.c0a9b7a0.chunk.css",
+    "main.js": "/doodle_challenge/static/js/main.8e90ccf0.chunk.js",
+    "main.js.map": "/doodle_challenge/static/js/main.8e90ccf0.chunk.js.map",
+    "runtime-main.js": "/doodle_challenge/static/js/runtime-main.918ada9b.js",
+    "runtime-main.js.map": "/doodle_challenge/static/js/runtime-main.918ada9b.js.map",
+    "static/js/2.cd978513.chunk.js": "/doodle_challenge/static/js/2.cd978513.chunk.js",
+    "static/js/2.cd978513.chunk.js.map": "/doodle_challenge/static/js/2.cd978513.chunk.js.map",
+    "static/js/3.4b1e0168.chunk.js": "/doodle_challenge/static/js/3.4b1e0168.chunk.js",
+    "static/js/3.4b1e0168.chunk.js.map": "/doodle_challenge/static/js/3.4b1e0168.chunk.js.map",
+    "index.html": "/doodle_challenge/index.html",
+    "static/css/main.c0a9b7a0.chunk.css.map": "/doodle_challenge/static/css/main.c0a9b7a0.chunk.css.map",
+    "static/js/2.cd978513.chunk.js.LICENSE.txt": "/doodle_challenge/static/js/2.cd978513.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/doodle_challenge/static/media/BodyBG.b4331fc5.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.918ada9b.js",
+    "static/js/2.cd978513.chunk.js",
+    "static/css/main.c0a9b7a0.chunk.css",
+    "static/js/main.8e90ccf0.chunk.js"
+  ]
+}
